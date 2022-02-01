@@ -7,8 +7,8 @@ public virtual class AccountTH extends TriggerHandler {
     Map<Id, Account> oldAccounts;
 
     AccountFilter filter;
-    EventEnricher enricher;
-    EventRepository eventRepository;
+    AccountEventEnricher enricher;
+    AccountEventRepository accountEventRepository;
 
     public AccountTH() {
         this( (List<Account>) Trigger.new, (Map<Id,Account>) Trigger.oldMap );
@@ -19,8 +19,8 @@ public virtual class AccountTH extends TriggerHandler {
         this.oldAccounts = oldAccounts;
         
         this.filter = new AccountFilter();
-        this.enricher = new EventEnricher();
-        this.eventRepository = new EventRepository();
+        this.enricher = new AccountEventEnricher();
+        this.accountEventRepository = new AccountEventRepository();
     }
 
     override
@@ -52,7 +52,7 @@ public virtual class AccountTH extends TriggerHandler {
 
         List<Event> events = this.enricher.withForPremiumAccount(filterAccounts);
     
-        this.eventRepository.save( events );
+        this.accountEventRepository.save( events );
 
     }
 

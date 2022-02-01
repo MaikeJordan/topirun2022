@@ -1,7 +1,7 @@
 /**
  * @author Maike
  */
-public virtual class EventEnricher {
+public virtual class AccountEventEnricher {
 
     public List<Event> withForPremiumAccount ( List<Account> premiumAccounts ) {
         

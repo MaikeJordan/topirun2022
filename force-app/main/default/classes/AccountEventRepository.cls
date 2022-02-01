@@ -1,7 +1,7 @@
 /**
  * @author Maike
  */
-public virtual class EventRepository extends AbstractRepository{
+public virtual class AccountEventRepository extends AbstractRepository{
    
     virtual
     public List<Event> save( List<Event> events ) {

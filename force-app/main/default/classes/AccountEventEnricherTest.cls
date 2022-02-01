@@ -2,7 +2,7 @@
  * @author Maike
  */
 @isTest
-public with sharing class EventEnricherTest {
+public with sharing class AccountEventEnricherTest {
     
     @isTest
     static void createEventForPremiumAccountTest() {
