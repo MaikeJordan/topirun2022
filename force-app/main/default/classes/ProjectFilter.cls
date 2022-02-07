@@ -1,7 +1,7 @@
 /**
  * @author Maike
  */
-public with sharing class ProjectFilter {
+public class ProjectFilter {
    
     public List<Project__c> filterByEnterpriseProjectStarted(List<Project__c> newProjects, Map<Id,Project__c> oldProjects){
 

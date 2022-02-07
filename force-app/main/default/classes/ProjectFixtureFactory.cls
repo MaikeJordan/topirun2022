@@ -10,13 +10,13 @@ public class ProjectFixtureFactory {
                                , EndDate__c = endDate);
     }
 
-    public static Project__c createProject ( String name, Date startDate, Date endDate ){
+    public static Project__c createProject( String name, Date startDate, Date endDate ){
     
         return createProject( newProject(name, startDate, endDate ) );
     
     }
 
-    public static Project__c createProject ( Project__c project ){
+    public static Project__c createProject( Project__c project ){
     
         insert project;
         return project;
