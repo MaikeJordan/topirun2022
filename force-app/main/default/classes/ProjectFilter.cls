@@ -11,21 +11,18 @@ public class ProjectFilter {
         
         for ( Project__c project : newProjects ) {
             
-            if (Project.Type__c != 'Enterprise' || project.Status__c != 'Iniciado') 
-                continue;
+            Project__c oldProject = oldProjects.get(project.Id);
 
             if ( oldProjects == null || oldProjects.isEmpty() ){
                 filteredProjects.add(project);
                 continue;
             }
-        
-            Project__c oldProject = oldProjects.get(project.Id);
 
-            if (oldProject.Status__c == project.Status__c)
-                continue;
-
-            filteredProjects.add(project);
+            if (Project.Type__c == 'Enterprise' && project.Status__c == 'Iniciado' && project.Status__c != oldProject.Status__c)
+                filteredProjects.add(project);
+                
         }
+
         return filteredProjects;
     }
     

@@ -12,6 +12,7 @@ public with sharing class ProjectTH extends TriggerHandler {
 
         this.newProjects = newProjects;
         this.oldProjects = oldProjects;
+        this.projectFilter = new ProjectFilter();
         
     }
 
@@ -36,6 +37,17 @@ public with sharing class ProjectTH extends TriggerHandler {
 
     override
     public void afterUpdate() {
+        sendProject();
+
+    }
+
+    public void sendProject(){
+
+        List<Project__c> projects = this.projectFilter.filterByEnterpriseProjectStarted(newProjects, oldProjects);
+        
+        ProjectPublisher publish = new ProjectPublisher();
+
+        if(projects.size() > 0) publish.publish(projects);
 
     }
 
